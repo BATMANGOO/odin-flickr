@@ -1,0 +1,16 @@
+<div id='container'>
+  <h1 class='title'>Flickr Photo Search</h1>
+  <%= render 'form'%>
+
+  <% if params[:user_id].nil? %>
+    <div class='empty-tag'>
+      <%= content_tag :p, 'So Empty!' %>
+    </div>
+  <% else %>
+    <div class='photo-stream'>
+      <% @photos.each do |photo| %>
+        <img src="<%=Flickr.url_n(photo)%>">
+      <% end %>
+    </div>
+  <% end %>
+</div>
